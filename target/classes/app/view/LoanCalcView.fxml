@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.LoanCalcViewController">
+    <top>
+        <VBox alignment="CENTER" prefHeight="40.0" prefWidth="730.0" BorderPane.alignment="CENTER">
+            <children>
+
+                <Label text="Loan Amortization Schedule Calculator">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Label>
+                <VBox prefHeight="200.0" prefWidth="100.0"/>
+            </children>
+        </VBox>
+    </top>
+    <bottom>
+        <VBox alignment="CENTER" prefHeight="80.0" prefWidth="39.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="lblErrorMsg" text="">
+                    <font>
+                        <Font size="12.0"/>
+                    </font>
+                </Label>
+                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#btnCalcLoan" text="Calculate"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </bottom>
+    <center>
+        <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="730.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="TOP_CENTER" prefHeight="152.0" prefWidth="730.0">
+                    <children>
+                        <GridPane prefHeight="152.0" prefWidth="280.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0"
+                                                   prefWidth="143.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0"
+                                                   prefWidth="137.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Label text="Loan Amount"/>
+                                <Label text="Interest Rate" GridPane.rowIndex="1"/>
+                                <Label text="Term of Loan/years" GridPane.rowIndex="2"/>
+                                <Label text="First Payment Date" GridPane.rowIndex="3"/>
+                                <TextField fx:id="LoanAmount" prefHeight="25.0" prefWidth="100.0"
+                                           GridPane.columnIndex="1"/>
+                                <Label text="Additional Payment" GridPane.rowIndex="4"/>
+                                <TextField fx:id="InterestRate" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                <TextField fx:id="NbrOfYears" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                <DatePicker fx:id="PaymentStartDate" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                <Label fx:id="lblAdditionalPayment" alignment="CENTER" contentDisplay="CENTER"
+                                       prefWidth="140.0" text="0" textAlignment="CENTER" GridPane.columnIndex="1"
+                                       GridPane.rowIndex="4"/>
+                            </children>
+                        </GridPane>
+                        <HBox prefHeight="152.0" prefWidth="110.0"/>
+                        <GridPane prefHeight="152.0" prefWidth="330.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0"
+                                                   prefWidth="118.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0"
+                                                   prefWidth="224.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Label text="Total Payments"/>
+                                <Label text="Total Interest" GridPane.rowIndex="1"/>
+                                <Label fx:id="lblTotalPayments" alignment="CENTER" prefWidth="160.0" text="0"
+                                       GridPane.columnIndex="1"/>
+                                <Label fx:id="lblTotalInterest" alignment="CENTER" prefWidth="160.0" text="0"
+                                       GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                            </children>
+                        </GridPane>
+                    </children>
+                </HBox>
+                <VBox prefHeight="20.0" prefWidth="100.0"/>
+                <HBox alignment="BOTTOM_CENTER" prefHeight="331.0" prefWidth="730.0">
+                    <children>
+                        <TableView fx:id="tableView" prefHeight="331.0" prefWidth="750.0">
+                            <columns>
+                                <TableColumn fx:id="indexColumn" prefWidth="90.0" text="Payment #"/>
+                                <TableColumn fx:id="dateColumn" prefWidth="110.0" text="Due Date"/>
+                                <TableColumn fx:id="paymentColumn" prefWidth="90.0" text="Payment"/>
+                                <TableColumn fx:id="additionalPaymentColumn" prefWidth="170.0"
+                                             text="Additional Payment"/>
+                                <TableColumn fx:id="interestColumn" prefWidth="90.0" text="Interest"/>
+                                <TableColumn fx:id="principalColumn" prefWidth="90.0" text="Principal"/>
+                                <TableColumn fx:id="balanceColumn" prefWidth="90.0" text="Balance"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
